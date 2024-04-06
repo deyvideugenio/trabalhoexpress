@@ -1,0 +1,28 @@
+{
+  "name": "desafio1",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "lint": "eslint **/*.js --ignore-pattern node_modules/",
+    "test": "echo \"Error:  no test specified\" && exit 1",
+    "lint-fix": "eslint --fix .",
+    "debug": "SET DEBUG=desafio1:*& npm start",
+    "nodemon": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "http-errors": "~1.6.3",
+    "jade": "^0.29.0",
+    "morgan": "~1.9.1",
+    "mysql2": "^3.9.3"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "eslint-config-google": "^0.14.0",
+    "nodemon": "^3.1.0"
+  }
+}

@@ -1,0 +1,3 @@
+CREATE TABLE `desafioexpressmysql`.`clientes` (`id` INT(10) NOT NULL AUTO_INCREMENT , `nome` VARCHAR(255) NOT NULL , `sobrenome` VARCHAR(255) NOT NULL , `email` VARCHAR(255) NOT NULL , `idade` INT(3) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `desafioexpressmysql`.`produtos` (`id` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR NOT NULL , `descrição` VARCHAR NOT NULL , `preço` DECIMAL NOT NULL , `data_atualizado` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
