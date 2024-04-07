@@ -1,26 +1,20 @@
 const validateDate = (request, response, next) => {
   const { body } = request;
-  const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+  const dateRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/;
 
-  if (body.data == undefined || body.data === '') {
+  if (body.data_atualizado == undefined || body.data_atualizado === '') {
     return response.status(400)
-      .json({ message: 'O campo "data" é obrigatório' });
+      .json({ message: 'O campo "data_atualizado" é obrigatório' });
   }
   
-  if (!dateRegex.test(body.data)) {
+  if (!dateRegex.test(body.data_atualizado)) {
     return response.status(400)
-      .json({ message: 'O campo "data" deve estar no formato "YYYY-MM-DD"' });
+      .json({ message: 'O campo "data_atualizado" deve estar no formato "YYYY-MM-DDTHH:MM:SS.MMMZ"' });
   }
 
-  const parts = body.data.split('-');
-  const year = parseInt(parts[0]);
-  const month = parseInt(parts[1]);
-  const day = parseInt(parts[2]);
+  const date = new Date(body.data_atualizado);
 
-  const isValidDate = !isNaN(year) && !isNaN(month) && !isNaN(day) &&
-    month >= 1 && month <= 12 && day >= 1 && day <= new Date(year, month, 0).getDate();
-
-  if (!isValidDate) {
+  if (isNaN(date.getTime())) {
     return response.status(400)
       .json({ message: 'A data fornecida não é uma data válida' });
   }
@@ -28,4 +22,4 @@ const validateDate = (request, response, next) => {
   next();
 };
 
-module.exports = { validateDate };
+module.exports = { validateDate }
